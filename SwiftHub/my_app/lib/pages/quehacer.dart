@@ -46,7 +46,7 @@ class quehacer extends StatelessWidget {
               ),
 
               Image.asset(
-                'assets/images/calendario.jpg',
+                'assets/images/calendario.png',
                 width: 500,
                 height: 500,
                 fit: BoxFit.contain,

@@ -63,7 +63,12 @@ class MyApp extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginPage()));
+                      },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Color.fromARGB(199, 75, 95, 249),
                           side: const BorderSide(color: Colors.black),
