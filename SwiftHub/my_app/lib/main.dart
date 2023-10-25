@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/pages/planificacion.dart';
 
 void main() =>
     runApp(const MaterialApp(home: MyApp(), debugShowCheckedModeBanner: false));
@@ -39,19 +40,24 @@ class MyApp extends StatelessWidget {
               Column(
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
-                    
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                          MaterialPageRoute(builder: (context) => planificacion()), 
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
+                        backgroundColor: Colors.red,
                         padding:
                            const  EdgeInsets.symmetric(horizontal: 100, vertical: 50),
                         maximumSize: const Size(double.infinity, 50),
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30))),
-                            child: const Text('Comenzar', style: TextStyle(color: Colors.red),),
+                            borderRadius: BorderRadius.circular(100),),),
+                            child: const Text('Comenzar', style: TextStyle(color: Colors.black),),
                   ),
                   ElevatedButton(
-                      onPressed: () {}, child: const Text('Iniciar sesión', style: TextStyle(color: Colors.black),)),
+                      onPressed: () {}, 
+                      child: const Text('Iniciar sesión', style: TextStyle(color: Colors.black),)),
                 ],
               )
             ],
