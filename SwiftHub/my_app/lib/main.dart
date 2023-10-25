@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/pages/login_page.dart';
 
 void main() =>
     runApp(const MaterialApp(home: MyApp(), debugShowCheckedModeBanner: false));
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'SwiftHub',
       home: Scaffold(
+        backgroundColor: Color.fromARGB(255, 2, 31, 80),
         body: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
@@ -24,34 +26,51 @@ class MyApp extends StatelessWidget {
                   Text(
                     'SwiftHub',
                     style: TextStyle(
-                        color: Color.fromARGB(255, 178, 136, 9),
+                        color: Color.fromARGB(255, 254, 141, 2),
                         fontFamily: 'Poppins',
                         fontSize: 40,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
                     'Planea tu mundo de eventos con nosotros',
-                    style: TextStyle(fontFamily: 'Poppins'),
+                    style:
+                        TextStyle(fontFamily: 'Poppins', color: Colors.white),
                   )
                 ],
               ),
-              Image.asset('assets/images/logouno.jpg'),
+              Container(
+                alignment: Alignment
+                    .center, // Esto centra la imagen dentro del contenedor
+                child: Image.asset('assets/images/logo.png', width: 200, height: 200,),
+              ),
               Column(
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
-                    
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginPage()));
+                    },
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                        padding:
-                           const  EdgeInsets.symmetric(horizontal: 100, vertical: 50),
-                        maximumSize: const Size(double.infinity, 50),
+                        backgroundColor: const Color.fromARGB(255, 72, 97, 121),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 124, vertical: 20),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30))),
-                            child: const Text('Comenzar', style: TextStyle(color: Colors.red),),
+                    child: const Text('Comenzar'),
                   ),
+                  const SizedBox(height: 20),
                   ElevatedButton(
-                      onPressed: () {}, child: const Text('Iniciar sesión', style: TextStyle(color: Colors.black),)),
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromARGB(199, 75, 95, 249),
+                          side: const BorderSide(color: Colors.black),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 115, vertical: 20),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30))),
+                      child: const Text('Iniciar sesión')),
                 ],
               )
             ],

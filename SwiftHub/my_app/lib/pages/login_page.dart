@@ -5,38 +5,49 @@ import 'package:my_app/pages/register_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
+  void goBack(BuildContext context) {
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SizedBox(
-  width: double.infinity,
-  height: double.infinity,
-  child: Stack(
-    children: [
-      ClipRRect(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(size.height * 0.10),
-          bottomRight: Radius.circular(size.height * 0.10),
-        ),
-        child: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.blueAccent, Colors.grey],
+        body: SizedBox(
+      width: double.infinity,
+      height: double.infinity,
+      child: Stack(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(size.height * 0.10),
+              bottomRight: Radius.circular(size.height * 0.10),
+            ),
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.blueAccent, Colors.grey],
+                ),
+              ),
+              width: double.infinity,
+              height: size.height * 0.3,
             ),
           ),
-          width: double.infinity,
-          height: size.height * 0.3,
-        ),
+          Positioned(
+            top: 25,
+            left: 10,
+            child: IconButton(
+              onPressed: () {
+                goBack(context);
+              },
+              icon: const Icon(Icons.arrow_back, color: Colors.white),
+            ),
+          ),
+          // IconoPersona(),
+          loginForm(context)
+        ],
       ),
-      // IconoPersona(),
-      loginForm(context),
-    ],
-  ),
-)
-
-    );
+    ));
   }
 
   SingleChildScrollView loginForm(BuildContext context) {
@@ -44,7 +55,6 @@ class LoginPage extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: 130),
-          
           Container(
             padding: const EdgeInsets.all(20),
             margin: const EdgeInsets.symmetric(horizontal: 25),
@@ -66,7 +76,11 @@ class LoginPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset('assets/images/logo.png', width: 100, height: 100,)
+                    Image.asset(
+                      'assets/images/logo.png',
+                      width: 100,
+                      height: 100,
+                    )
                   ],
                 ),
                 const Text('Bienvenido a SwiftHub',
