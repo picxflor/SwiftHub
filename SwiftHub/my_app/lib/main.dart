@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/pages/login_page.dart';
+import 'package:my_app/pages/planificacion.dart';
 
 void main() =>
     runApp(const MaterialApp(home: MyApp(), debugShowCheckedModeBanner: false));
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const LoginPage()));
+                              builder: (context) => planificacion()));
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: const Color.fromARGB(255, 72, 97, 121),
