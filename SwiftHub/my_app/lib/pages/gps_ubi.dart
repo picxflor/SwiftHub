@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/pages/mensajes.dart';
+import 'package:my_app/pages/noti.dart';
 import 'package:my_app/pages/planificacion.dart';
+import 'package:my_app/pages/profile_page.dart';
 
 
 
@@ -10,6 +13,8 @@ class UbiMap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+    debugShowCheckedModeBanner: false,
+
       home: UbiCation(),
     );
   }
@@ -18,10 +23,10 @@ class UbiMap extends StatelessWidget {
 
 class UbiCation extends StatelessWidget {
   const UbiCation({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
-    
+    int _currentIndex = 0;
     return Scaffold(
   
       appBar: AppBar(//barra superior
@@ -52,7 +57,10 @@ class UbiCation extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.add_location_alt_sharp),
             onPressed: () {
-              
+              Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => NotiFica()),
+            );  
             },
           ),
         ],
@@ -88,6 +96,65 @@ class UbiCation extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+           currentIndex: _currentIndex,
+  onTap: (int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+    // Agrega lógica de navegación aquí, basada en el valor de 'index'
+    switch (index) {
+      case 0:
+        // Navegar a la vista de "Inicio"
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => planificacion()));
+        break;
+      case 1:
+        // Navegar a la vista de "Mensajes"
+         Navigator.of(context).push(MaterialPageRoute(builder: (context) => MySms()));
+        break;
+      case 2:
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => NotiFica()));
+        break;
+      case 3:
+        // Navegar a la vista de "Ubicación"
+         Navigator.of(context).push(MaterialPageRoute(builder: (context) => UbiMap()));
+        break;
+      case 4:
+        // Navegar a la vista de "Perfil"
+         Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfilePage()));
+        break;
+    }
+  },
+        items: [
+           BottomNavigationBarItem(
+            backgroundColor: Colors.blue,
+            icon: Icon(Icons.home),
+            label: 'Inicio',
+          ),
+           BottomNavigationBarItem(
+            backgroundColor: Colors.blue,
+            icon: Icon(Icons.message),
+            label: 'Mensajes',
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: Colors.blue,
+            icon: Icon(Icons.notification_add),
+            label: 'Notificacion',
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: Colors.blue,
+            icon: Icon(Icons.location_on),
+            label: 'Ubicacion',
+          ),
+         
+          BottomNavigationBarItem(
+            backgroundColor: Colors.blue,
+            icon: Icon(Icons.person),
+            label: 'Perfil',
+          ),
+           
+        ],
+      ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
         },
@@ -97,8 +164,11 @@ class UbiCation extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,//posision del boton
     );
+    
   }
-}
+} 
+void setState(Null Function() param0) {}
+
 
 Widget _buildListItem(String title,  subtitle, String imageUrl) {
     return Padding(
@@ -121,3 +191,4 @@ Widget _buildListItem(String title,  subtitle, String imageUrl) {
       ),
     );
   }
+  

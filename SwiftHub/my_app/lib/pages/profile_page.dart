@@ -5,6 +5,7 @@ import 'package:my_app/pages/gps_ubi.dart';
 import 'package:my_app/pages/importantes.dart';
 import 'package:my_app/pages/logrados.dart';
 import 'package:my_app/pages/mensajes.dart';
+import 'package:my_app/pages/noti.dart';
 import 'package:my_app/pages/pendientes.dart';
 import 'package:my_app/pages/quehacer.dart';
 
@@ -230,10 +231,13 @@ class ProfilePage extends StatelessWidget {
          Navigator.of(context).push(MaterialPageRoute(builder: (context) => MySms()));
         break;
       case 2:
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => NotiFica()));
+        break;
+      case 3:
         // Navegar a la vista de "Ubicación"
          Navigator.of(context).push(MaterialPageRoute(builder: (context) => UbiMap()));
         break;
-      case 3:
+      case 4:
         // Navegar a la vista de "Perfil"
          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfilePage()));
         break;
@@ -249,6 +253,11 @@ class ProfilePage extends StatelessWidget {
             backgroundColor: Colors.blue,
             icon: Icon(Icons.message),
             label: 'Mensajes',
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: Colors.blue,
+            icon: Icon(Icons.notification_add),
+            label: 'Notificacion',
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.blue,
