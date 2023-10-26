@@ -24,7 +24,7 @@ class ContactPage extends StatefulWidget {
 class _ContactPageState extends State<ContactPage> {
   List<Map<String, String>> contacts = [
     {'name': 'Juan Perez', 'phone': '985712456'},
-    {'name': 'Maria Garcia', 'phone': '978452156'},
+    {'name': 'Nataly Carrasco', 'phone': '978452156'},
     {'name': 'Luis Hernandez', 'phone': '978127892'},
     {'name': 'Ana Lopez', 'phone': '945567893'},
     {'name': 'Carlos Martinez', 'phone': '978128524'},

@@ -10,6 +10,7 @@ class NotiFica extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Notificaciones',
+      debugShowCheckedModeBanner: false,
       home: NotificationScreen(),
     );
   }

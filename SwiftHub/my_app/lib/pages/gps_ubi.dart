@@ -57,10 +57,7 @@ class UbiCation extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.add_location_alt_sharp),
             onPressed: () {
-              Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => NotiFica()),
-            );  
+              
             },
           ),
         ],
