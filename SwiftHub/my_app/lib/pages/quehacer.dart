@@ -57,7 +57,7 @@ class PickerDemo extends StatefulWidget {
 
 class _PickerDemoState extends State<PickerDemo> {
   late DateTime _selectedDate;
-  bool _fechaElegida = false; // Para rastrear si se eligió una fecha
+  bool _fechaElegida = false; 
 
   @override
   void initState() {
