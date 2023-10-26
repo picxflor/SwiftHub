@@ -188,6 +188,7 @@ class ProfilePage extends StatelessWidget {
         )
       ),
       bottomNavigationBar: BottomNavigationBar(
+        
         items: [
            BottomNavigationBarItem(
             backgroundColor: Colors.blue,

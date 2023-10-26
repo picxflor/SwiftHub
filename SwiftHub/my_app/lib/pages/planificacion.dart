@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/pages/gps_ubi.dart';
+import 'package:my_app/pages/mensajes.dart';
+import 'package:my_app/pages/profile_page.dart';
 import 'package:my_app/pages/quehacer.dart';
+
 
 void main() {
   runApp(planificacion());
 }
 
 class planificacion extends StatelessWidget {
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -78,7 +83,60 @@ class planificacion extends StatelessWidget {
             ],
           ),
         ),
+        bottomNavigationBar: BottomNavigationBar(
+           currentIndex: _currentIndex,
+  onTap: (int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+    // Agrega lógica de navegación aquí, basada en el valor de 'index'
+    switch (index) {
+      case 0:
+        // Navegar a la vista de "Inicio"
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => planificacion()));
+        break;
+      case 1:
+        // Navegar a la vista de "Mensajes"
+         Navigator.of(context).push(MaterialPageRoute(builder: (context) => MySms()));
+        break;
+      case 2:
+        // Navegar a la vista de "Ubicación"
+         Navigator.of(context).push(MaterialPageRoute(builder: (context) => UbiMap()));
+        break;
+      case 3:
+        // Navegar a la vista de "Perfil"
+         Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfilePage()));
+        break;
+    }
+  },
+        items: [
+           BottomNavigationBarItem(
+            backgroundColor: Colors.blue,
+            icon: Icon(Icons.home),
+            label: 'Inicio',
+          ),
+           BottomNavigationBarItem(
+            backgroundColor: Colors.blue,
+            icon: Icon(Icons.message),
+            label: 'Mensajes',
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: Colors.blue,
+            icon: Icon(Icons.location_on),
+            label: 'Ubicacion',
+          ),
+         
+          BottomNavigationBarItem(
+            backgroundColor: Colors.blue,
+            icon: Icon(Icons.person),
+            label: 'Perfil',
+          ),
+           
+        ],
+      ),
       ),
     );
   }
+  
+  void setState(Null Function() param0) {}
 }
