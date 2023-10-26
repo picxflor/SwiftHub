@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/pages/configuraciones.dart';
+import 'package:my_app/pages/estadisticas.dart';
+import 'package:my_app/pages/importantes.dart';
+import 'package:my_app/pages/logrados.dart';
+import 'package:my_app/pages/pendientes.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -45,7 +50,10 @@ class ProfilePage extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.all(10),//Margen del primero boton
                     child: ElevatedButton(onPressed: (){
-                      Navigator.pushNamed(context, '/logrados');
+                       Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LogradosPage()));
                     
                     },
                     style: ElevatedButton.styleFrom(
@@ -73,7 +81,10 @@ class ProfilePage extends StatelessWidget {
       margin: EdgeInsets.all(10), // Margin of 20 for the second button
       child: ElevatedButton(
         onPressed: () {
-            Navigator.pushNamed(context, '/pendientes');
+            Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PendientesPage()));
         },
         style: ElevatedButton.styleFrom(
           fixedSize: Size(300, 75),
@@ -100,7 +111,10 @@ class ProfilePage extends StatelessWidget {
       margin: EdgeInsets.all(10), // Margin of 20 for the third button
       child: ElevatedButton(
         onPressed: () {
-         Navigator.pushNamed(context, '/importantes');
+          Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ImportantesPage()));
         },
         style: ElevatedButton.styleFrom(
           fixedSize: Size(300, 75),
@@ -127,7 +141,10 @@ class ProfilePage extends StatelessWidget {
       margin: EdgeInsets.all(10), // Margin of 20 for the fourth button
       child: ElevatedButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/estadisticas');
+          Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => EstadisPage()));
         },
         style: ElevatedButton.styleFrom(
           fixedSize: Size(300, 75),
@@ -155,7 +172,10 @@ class ProfilePage extends StatelessWidget {
       margin: EdgeInsets.all(10), // Margin of 20 for the fifth button
       child: ElevatedButton(
         onPressed: () {
-         Navigator.pushNamed(context, '/configuraciones');
+         Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ConfigPage()));
         },
         style: ElevatedButton.styleFrom(
           fixedSize: Size(300, 75),
@@ -188,7 +208,7 @@ class ProfilePage extends StatelessWidget {
         )
       ),
       bottomNavigationBar: BottomNavigationBar(
-        
+
         items: [
            BottomNavigationBarItem(
             backgroundColor: Colors.blue,

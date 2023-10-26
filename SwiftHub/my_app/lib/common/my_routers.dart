@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/pages/initial_page.dart';
 import 'package:my_app/pages/login_page.dart';
+import 'package:my_app/pages/logrados.dart';
 import 'package:my_app/pages/my_home_page.dart';
 import 'package:my_app/pages/playing_page.dart';
 import 'package:my_app/pages/playlist_page.dart';
@@ -10,6 +11,7 @@ const String routeLogin = '/login';
 const String routerPlaylist = '/playlist';
 const String routePlaying = '/playing';
 const String routeInitial = '/initial';
+const String routeLogrados = '/logrados';
 
 
 
@@ -26,6 +28,8 @@ class MyRouters {
         return MaterialPageRoute(builder: (_) => const PlayListPage());
         case '/initial':
         return MaterialPageRoute(builder: (_) => const InitialPage());
+        case '/logrados':
+        return MaterialPageRoute(builder: (_) => const LogradosPage());
 
       default:
         return MaterialPageRoute(builder: (_) => const LoginPage());
