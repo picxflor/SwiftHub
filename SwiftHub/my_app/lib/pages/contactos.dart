@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(Contactos());
+void main() => runApp(const Contactos());
 
 class Contactos extends StatelessWidget {
   const Contactos({super.key});
@@ -91,7 +91,9 @@ class _ContactPageState extends State<ContactPage> {
             ),
           ),
         ],
+      
       ),
+      
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
         },
