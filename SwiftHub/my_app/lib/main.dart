@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
               ),
               Container(
                 alignment: Alignment
-                    .center, // Esto centra la imagen dentro del contenedor
+                    .center, 
                 child: Image.asset('assets/images/logo.png', width: 200, height: 200,),
               ),
               Column(
