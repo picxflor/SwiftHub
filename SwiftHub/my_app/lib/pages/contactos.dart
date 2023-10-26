@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
-void main() => runApp(const Contactos());
+import 'package:my_app/pages/mensajes.dart'; 
 
 class Contactos extends StatelessWidget {
-  const Contactos({super.key});
+  const Contactos({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,40 +14,41 @@ class Contactos extends StatelessWidget {
 
 
 class ContactPage extends StatefulWidget {
-  const ContactPage({super.key});
+  const ContactPage({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
+
   _ContactPageState createState() => _ContactPageState();
 }
 
 class _ContactPageState extends State<ContactPage> {
-  List<String> contacts = [
-    'Juan Perez',
-    'Maria Garcia',
-    'Luis Hernandez',
-    'Ana Lopez',
-    'Carlos Martinez',
-    'Sofia Rodriguez',
-    'Pedro Chavez',
-    'Laura Sanchez',
-    'Oscar Ramirez',
-    'Elena Flores',
+  List<Map<String, String>> contacts = [
+    {'name': 'Juan Perez', 'phone': '985712456'},
+    {'name': 'Maria Garcia', 'phone': '978452156'},
+    {'name': 'Luis Hernandez', 'phone': '978127892'},
+    {'name': 'Ana Lopez', 'phone': '945567893'},
+    {'name': 'Carlos Martinez', 'phone': '978128524'},
+    {'name': 'Sofia Rodriguez', 'phone': '981547895'},
+    {'name': 'Pedro Chavez', 'phone': '998155215'},
+    {'name': 'Laura Sanchez', 'phone': '981212789'},
+    {'name': 'Oscar Ramirez', 'phone': '945867898'},
+    {'name': 'Elena Flores', 'phone': '921567899'},
   ];
 
-  List<String> filteredContacts = [];
+  List<Map<String, String>> filteredContacts = [];
 
   @override
   void initState() {
     filteredContacts = contacts;
     super.initState();
   }
-
-  void filterContacts(String query) {
+  
+   void filterContacts(String query) {
     setState(() {
       filteredContacts = contacts
           .where((contact) =>
-              contact.toLowerCase().contains(query.toLowerCase()))
+              contact['name']!.toLowerCase().contains(query.toLowerCase()) ||
+              contact['phone']!.contains(query))
           .toList();
     });
   }
@@ -60,7 +60,10 @@ class _ContactPageState extends State<ContactPage> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            // Este es el boton de regresar
+          Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => MySms()), 
+          );
           },
         ),
         title: const Text('Contactos'),
@@ -70,7 +73,7 @@ class _ContactPageState extends State<ContactPage> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
-            keyboardType: TextInputType.number, // Configura el teclado para que 
+            keyboardType: TextInputType.number, 
               onChanged: (value) => filterContacts(value),
               decoration: const InputDecoration(
                 labelText: 'Buscar contacto',
@@ -83,25 +86,37 @@ class _ContactPageState extends State<ContactPage> {
               itemCount: filteredContacts.length,
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
-                  title: Text(filteredContacts[index]),
-                  onTap: () {
-                  },
+                  title: Text(filteredContacts[index]['name']!),
+                  subtitle: Text(filteredContacts[index]['phone']!),
+                  onTap: () {},
                 );
               },
             ),
           ),
         ],
-      
       ),
-      
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-        },
-        label: const Text('Llamar'),
-        icon: const Icon(Icons.phone),
-        backgroundColor: Colors.green,
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          FloatingActionButton.extended(
+            onPressed: () {
+
+            },
+            label: const Text('Añadir'),
+            icon: const Icon(Icons.add),
+            backgroundColor: Colors.blue,
+          ),
+          FloatingActionButton.extended(
+            onPressed: () {
+              
+            },
+            label: const Text('Llamar'),
+            icon: const Icon(Icons.phone),
+            backgroundColor: Colors.green,
+          ),
+        ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,//posision del boton
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/pages/contactos.dart';
 import 'package:my_app/pages/planificacion.dart';
-import 'package:my_app/pages/quehacer.dart';
-
-
-void main() => runApp(const MySms());
 
 class MySms extends StatelessWidget {
   const MySms({super.key});

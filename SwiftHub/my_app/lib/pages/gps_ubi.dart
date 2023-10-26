@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/pages/planificacion.dart';
 
 
-void main() => runApp(const UbiMap());
+
 
 class UbiMap extends StatelessWidget {
   const UbiMap ({super.key});
