@@ -63,7 +63,7 @@ class _PickerDemoState extends State<PickerDemo> {
   void initState() {
     super.initState();
     _selectedDate = DateTime.now();
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       _selectDate(context);
     });
   }
