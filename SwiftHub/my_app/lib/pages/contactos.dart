@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(Contactos());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Contactos extends StatelessWidget {
+  const Contactos({super.key});
 
   @override
   Widget build(BuildContext context) {

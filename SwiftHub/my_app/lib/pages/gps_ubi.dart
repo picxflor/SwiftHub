@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/pages/planificacion.dart';
 
 
 void main() => runApp(const UbiMap());
@@ -28,7 +29,10 @@ class UbiCation extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            // Este es el boton de regresar
+            Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => planificacion()),
+                );
           },
         ),
         title: const Text('Ubicación de eventos'),

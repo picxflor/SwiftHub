@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/pages/contactos.dart';
+import 'package:my_app/pages/planificacion.dart';
+import 'package:my_app/pages/quehacer.dart';
+
 
 void main() => runApp(const MySms());
 
@@ -27,8 +31,11 @@ class SmsApp extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            // Este es el boton de regresar
-          },
+            Navigator.push(
+            context,
+                  MaterialPageRoute(builder: (context) => planificacion()),
+            );     
+                 },
         ),
         title: const Text('Mensajes'),
         //title: TextField(
@@ -53,7 +60,10 @@ class SmsApp extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.supervised_user_circle),
             onPressed: () {
-              // Acciones para contactos
+               Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Contactos()),
+                );
             },
           ),
         ],
