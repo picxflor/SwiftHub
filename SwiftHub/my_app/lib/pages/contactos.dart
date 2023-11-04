@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/pages/add_contact.dart';
 import 'package:my_app/pages/mensajes.dart'; 
 
 class Contactos extends StatelessWidget {
@@ -33,6 +34,9 @@ class _ContactPageState extends State<ContactPage> {
     {'name': 'Laura Sanchez', 'phone': '981212789'},
     {'name': 'Oscar Ramirez', 'phone': '945867898'},
     {'name': 'Elena Flores', 'phone': '921567899'},
+    {'name': 'Lucas Condori', 'phone': '933141106'},
+    {'name': 'Gabiela Conde', 'phone': '911235708'},
+
   ];
 
   List<Map<String, String>> filteredContacts = [];
@@ -95,28 +99,19 @@ class _ContactPageState extends State<ContactPage> {
           ),
         ],
       ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          FloatingActionButton.extended(
-            onPressed: () {
-
-            },
-            label: const Text('Añadir'),
-            icon: const Icon(Icons.add),
-            backgroundColor: Colors.blue,
-          ),
-          FloatingActionButton.extended(
-            onPressed: () {
-              
-            },
-            label: const Text('Llamar'),
-            icon: const Icon(Icons.phone),
-            backgroundColor: Colors.green,
-          ),
-        ],
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) =>  add_contact()), 
+          );
+          },
+        label: const Text('Añadir'),
+        icon: const Icon(Icons.group_add_outlined),
+        backgroundColor: Colors.blue,
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,//posision del boton
+      
     );
   }
 }
