@@ -163,92 +163,45 @@ class MyRegisterPage extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 10),
-                        SizedBox(
-                          width: 190,
-                          child: MaterialButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const InitialPage(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            MaterialButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const InitialPage(),
+                                  ),
+                                );
+                              },
+                              shape: const CircleBorder(),
+                              child:Image.asset(
+                                  'assets/images/google.png',
+                                  width: 40, // Ancho de la imagen
+                                  height: 40, // Alto de la imagen
                                 ),
-                              );
-                            },
-                            shape: const RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(14)),
+                              
                             ),
-                            color: Colors.white,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 10),
-                              child: Row(
-                                children: [
-                                  Image.asset(
-                                    'assets/images/google.png',
-                                    width: 13,
-                                    height: 13,
+                            MaterialButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const InitialPage(),
                                   ),
-                                  const SizedBox(
-                                      width:
-                                          40), // Espacio entre la imagen y el texto
-                                  const Text(
-                                    'Google',
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 15),
-                        SizedBox(
-                          width: 190,
-                          child: MaterialButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const InitialPage(),
+                                );
+                              },
+                              shape:CircleBorder(), // Utiliza CircleBorder para hacerlo circular
+                              
+                              child: Image.asset(
+                                  'assets/images/fb.webp',
+                                  width: 40, // Ancho de la imagen
+                                  height: 40, // Alto de la imagen
                                 ),
-                              );
-                            },
-                            shape: const RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(14)),
-                            ),
-                            color: const Color.fromARGB(255, 9, 111, 194),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 10),
-                              child: Row(
-                                children: [
-                                  Image.asset(
-                                    'assets/images/fb.webp',
-                                    width: 13,
-                                    height: 13,
-                                  ),
-                                  const SizedBox(
-                                      width:
-                                          33), // Espacio entre la imagen y el texto
-                                  const Text(
-                                    'Facebook',
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
+                              
+                            )
+                          ],
                         ),
                       ],
                     ),
