@@ -16,12 +16,35 @@ class planificacion extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xFF003E75), // fondo de todo
+        scaffoldBackgroundColor: Color(0x0000), // fondo de todo
       ),
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue, // fondo del titulo
-          title: Text('¿Qué vamos a planificar?'),
+          title: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.blue, Colors.green],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
+            child: Text(
+              '¿Qué vamos a planificar?',
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                shadows: [
+                  Shadow(
+                    color: Colors.black,
+                    blurRadius: 2,
+                    offset: Offset(1, 1),
+                  ),
+                ],
+              ),
+            ),
+          ),
           centerTitle: true,
         ),
         body: Center( // Centro todo el contenido
@@ -42,7 +65,7 @@ class planificacion extends StatelessWidget {
               ElevatedButtonTheme(
                 data: ElevatedButtonThemeData(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0x4B0F62),
+                    backgroundColor: Color(0xEADE72),
                     padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 10),
                   ),
                 ),
@@ -50,17 +73,113 @@ class planificacion extends StatelessWidget {
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
                     children: <Widget>[
-                      ElevatedButton(onPressed: () {}, child: Text('Fiestas')),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromRGBO(236, 67, 33, 1.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                          maximumSize: Size(200, double.infinity), // Ajusta el ancho máximo según tus necesidades
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.party_mode),
+                            const SizedBox(width: 8.0),
+                            Text('Fiestas'),
+                          ],
+                        ),
+                      ),
                       SizedBox(height: 35.0),
-                      ElevatedButton(onPressed: () {}, child: Text('Viajes')),
+
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromRGBO(252, 153, 34, 1.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                          maximumSize: Size(200, double.infinity), // Ajusta el ancho máximo según tus necesidades
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.place_rounded),
+                            const SizedBox(width: 8.0),
+                            Text('Viajes'),
+                          ],
+                        ),
+                      ),
                       SizedBox(height: 35.0),
-                      ElevatedButton(onPressed: () {}, child: Text('Reuniones')),
+
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromRGBO(82, 218, 61, 1.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                          maximumSize: Size(200, double.infinity), // Ajusta el ancho máximo según tus necesidades
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.meeting_room),
+                            const SizedBox(width: 8.0),
+                            Text('Reuniones'),
+                          ],
+                        ),
+                      ),
                       SizedBox(height: 35.0),
-                      ElevatedButton(onPressed: () {}, child: Text('Eventos')),
+
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromRGBO(65, 194, 194, 1.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                          maximumSize: Size(200, double.infinity), // Ajusta el ancho máximo según tus necesidades
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.event_busy),
+                            const SizedBox(width: 8.0),
+                            Text('Eventos'),
+                          ],
+                        ),
+                      ),
                       SizedBox(height: 35.0),
-                      ElevatedButton(onPressed: () {}, child: Text('Paseos')),
+
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromRGBO(206, 134, 221, 1.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                          maximumSize: Size(200, double.infinity), // Ajusta el ancho máximo según tus necesidades
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.directions_walk),
+                            const SizedBox(width: 8.0),
+                            Text('Paseos'),
+                          ],
+                        ),
+                      ),
                       SizedBox(height: 35.0),
-                      ElevatedButton(onPressed: () {}, child: Text('Otros')),
+
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromRGBO(113, 132, 211, 1.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                          maximumSize: Size(200, double.infinity), // Ajusta el ancho máximo según tus necesidades
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.more),
+                            const SizedBox(width: 8.0),
+                            Text('Otros'),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 35.0),
                     ],
                   ),
                 ),
@@ -73,7 +192,7 @@ class planificacion extends StatelessWidget {
                       );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Color.fromRGBO(197, 203, 57, 1.0),
                   textStyle: const TextStyle(
                     fontSize: 20,
                   ),
