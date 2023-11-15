@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/pages/initial_page.dart';
+import 'package:my_app/pages/planificacion.dart';
 import 'package:my_app/pages/recuperar_cuenta.dart';
 import 'package:my_app/pages/register_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
-  void goBack(BuildContext context) {
-    Navigator.pop(context);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,17 +29,6 @@ class LoginPage extends StatelessWidget {
               ),
               width: double.infinity,
               height: size.height * 0.3,
-            ),
-          ),
-          Positioned(
-            top: 25,
-            left: 10,
-            child: IconButton(
-              icon: const Icon(Icons.arrow_back, color: Colors.white),
-              onPressed: () {
-                goBack(context);
-              },
-              
             ),
           ),
           // IconoPersona(),
@@ -135,14 +122,14 @@ class LoginPage extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const InitialPage()));
+                                           planificacion()));
                             }, // Define la acción al presionar el botón
                             shape: const RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(14)),
                             ),
                             disabledColor: Colors.grey,
-                            color: Colors.black,
+                            color: Colors.blueGrey,
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 35, vertical: 10),

@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/pages/login_page.dart';
 import 'package:my_app/pages/planificacion.dart';
+import 'package:flutter/services.dart';
 
 void main() =>
-    runApp(const MaterialApp(home: MyApp(), debugShowCheckedModeBanner: false));
+    runApp(const MaterialApp(home: MyApp()));
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'SwiftHub',
       home: Scaffold(
-        //backgroundColor: Color.fromARGB(255, 2, 31, 80),
         body: Padding(
           padding: const EdgeInsets.all(30.0),
           child: Column(
@@ -42,7 +45,11 @@ class MyApp extends StatelessWidget {
               Container(
                 alignment: Alignment
                     .center, // Esto centra la imagen dentro del contenedor
-                child: Image.asset('assets/images/logo.png', width: 150, height: 150,),
+                child: Image.asset(
+                  'assets/images/logo.png',
+                  width: 150,
+                  height: 150,
+                ),
               ),
               Center(
                 child: Column(
@@ -55,9 +62,9 @@ class MyApp extends StatelessWidget {
                                 builder: (context) => planificacion()));
                       },
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 245, 159, 46),
-                          
-                            side: const BorderSide(color: Colors.black),
+                          backgroundColor:
+                              const Color.fromARGB(255, 245, 159, 46),
+                          side: const BorderSide(color: Colors.black),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 110, vertical: 20),
                           shape: RoundedRectangleBorder(
@@ -68,12 +75,13 @@ class MyApp extends StatelessWidget {
                     ElevatedButton(
                         onPressed: () {
                           Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LoginPage()));
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const LoginPage()));
                         },
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(198, 75, 200, 249), 
+                            backgroundColor:
+                                const Color.fromARGB(198, 75, 200, 249),
                             side: const BorderSide(color: Colors.black),
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 100, vertical: 20),
