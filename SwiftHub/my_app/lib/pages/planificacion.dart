@@ -83,7 +83,7 @@ class planificacion extends StatelessWidget {
                           maximumSize: const Size(
                               200,
                               double
-                                  .infinity), // Ajusta el ancho máximo según tus necesidades
+                                  .infinity), 
                         ),
                         child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -105,7 +105,7 @@ class planificacion extends StatelessWidget {
                           maximumSize: const Size(
                               200,
                               double
-                                  .infinity), // Ajusta el ancho máximo según tus necesidades
+                                  .infinity), 
                         ),
                         child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -127,7 +127,7 @@ class planificacion extends StatelessWidget {
                           maximumSize: const Size(
                               200,
                               double
-                                  .infinity), // Ajusta el ancho máximo según tus necesidades
+                                  .infinity), 
                         ),
                         child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -149,7 +149,7 @@ class planificacion extends StatelessWidget {
                           maximumSize: const Size(
                               200,
                               double
-                                  .infinity), // Ajusta el ancho máximo según tus necesidades
+                                  .infinity), 
                         ),
                         child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -170,7 +170,7 @@ class planificacion extends StatelessWidget {
                           maximumSize: Size(
                               200,
                               double
-                                  .infinity), // Ajusta el ancho máximo según tus necesidades
+                                  .infinity),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -191,7 +191,7 @@ class planificacion extends StatelessWidget {
                           maximumSize: Size(
                               200,
                               double
-                                  .infinity), // Ajusta el ancho máximo según tus necesidades
+                                  .infinity), 
                         ),
                         child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,

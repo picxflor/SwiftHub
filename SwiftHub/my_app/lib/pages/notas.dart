@@ -1,41 +1,34 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(notas());
-}
+import 'package:intl/intl.dart';
 
 class notas extends StatelessWidget {
-  const notas ({super.key});
+  final DateTime fecha;
+
+  const notas({Key? key, required this.fecha}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xFF003E75),
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.blue, 
-          title: const Align(
-            alignment: Alignment.center,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.home),
-                SizedBox(width: 8), 
-                Text('¿Qué haremos ese día?'),
-              ],
-            ),
-          ),
-          centerTitle: true,
-        ),
-        body: Center(
-          child: Column(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: const Center(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _buildNoteCard("Martes 18"),
+              Icon(Icons.home),
+              SizedBox(width: 8),
+              Text('¿Qué haremos ese día?'),
             ],
           ),
+        ),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildNoteCard(DateFormat.yMMMd().format(fecha)),
+          ],
         ),
       ),
     );
@@ -46,7 +39,16 @@ class notas extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 3,
+            blurRadius: 7,
+            offset: const Offset(0, 3), // Cambia la posición de la sombra
+          ),
+        ],
       ),
+      margin: const EdgeInsets.all(16.0),
       padding: const EdgeInsets.all(16.0),
       width: 300,
       height: 400,
@@ -54,20 +56,22 @@ class notas extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 10),
-          TextField(
-            decoration: InputDecoration(
-              hintText: 'Escribe tus notas aquí',
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
+          const SizedBox(height: 10),
+          Expanded(
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Escribe tus notas aquí',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
               ),
+              maxLines: null,
             ),
-            maxLines: 10,
           ),
         ],
       ),

@@ -41,8 +41,18 @@ class quehacer extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => PickerDemo()),
                 );
               },
-              child: Text('Elegir Fecha'),
-            )
+              style: ElevatedButton.styleFrom(
+                primary: Colors.orange,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+              ),
+              child: Text(
+                'Elegir Fecha',
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+            ),
           ],
         ),
       ),
@@ -57,7 +67,7 @@ class PickerDemo extends StatefulWidget {
 
 class _PickerDemoState extends State<PickerDemo> {
   late DateTime _selectedDate;
-  bool _fechaElegida = false; 
+  bool _fechaElegida = false;
 
   @override
   void initState() {
@@ -74,6 +84,17 @@ class _PickerDemoState extends State<PickerDemo> {
       initialDate: _selectedDate,
       firstDate: DateTime(2015, 8),
       lastDate: DateTime(2101),
+      builder: (BuildContext context, Widget? child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            primaryColor: const Color.fromARGB(255, 0, 238, 255),
+            hintColor: Colors.orange,
+            colorScheme: ColorScheme.light(primary: Colors.blue),
+            buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary),
+          ),
+          child: child!,
+        );
+      },
     );
     if (picked != null) {
       setState(() {
@@ -98,76 +119,45 @@ class _PickerDemoState extends State<PickerDemo> {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
-            if (_fechaElegida)
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => notas()),
-                  );
-                },
-                child: Text('Siguiente'),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => notas(fecha: _selectedDate)),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.green,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
               ),
+              child: Text(
+                'Siguiente',
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                _selectDate(context);
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+              ),
+              child: Text(
+                'Cambiar Fecha',
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
-/*
-
-class _BottomNavBar extends StatefulWidget {
-  @override
-  _BottomNavBarState createState() => _BottomNavBarState();
-}
-
-class _BottomNavBarState extends State<_BottomNavBar> {
-  int pageIndex = 0;
-
-  final List<Widget> pages = [
-    Container(
-      color: Colors.red,
-    ),
-    Container(
-      color: Colors.blue,
-    ),
-    Container(
-      color: Colors.green,
-    ),
-    Container(
-      color: Colors.yellow,
-    ),
-    Container(
-      color: Color.fromARGB(255, 129, 48, 141),
-    ),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: pages[pageIndex],
-      bottomNavigationBar: CurvedNavigationBar(
-        index: 0,
-        height: 50.0,
-        items: const <Widget>[
-          Icon(Icons.home, size: 30),
-          Icon(Icons.search, size: 30),
-          Icon(Icons.add, size: 30),
-          Icon(Icons.notifications, size: 30),
-          Icon(Icons.person, size: 30),
-        ],
-        color: Colors.white,
-        buttonBackgroundColor: Colors.white,
-        backgroundColor: Colors.blueAccent,
-        animationCurve: Curves.easeInOut,
-        animationDuration: Duration(milliseconds: 600),
-        onTap: (index) {
-          setState(() {
-            pageIndex = index;
-          });
-        },
-      ),
-    );
-  }
-}
-*/
