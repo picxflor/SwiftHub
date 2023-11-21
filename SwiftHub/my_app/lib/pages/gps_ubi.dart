@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/pages/map.dart';
 import 'package:my_app/pages/mensajes.dart';
 import 'package:my_app/pages/noti.dart';
 import 'package:my_app/pages/planificacion.dart';
@@ -45,6 +46,10 @@ class UbiCation extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.add_comment_outlined),
             onPressed: () {
+            Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Mapdapi()),
+                );
               
             },
           ),
