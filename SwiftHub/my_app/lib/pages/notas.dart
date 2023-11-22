@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:my_app/pages/contactos.dart';
 
 class notas extends StatelessWidget {
   final DateTime fecha;
@@ -30,6 +31,16 @@ class notas extends StatelessWidget {
             _buildNoteCard(DateFormat.yMMMd().format(fecha)),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => Contactos()),
+          );
+        },
+        child: Icon(Icons.navigate_next),
+        backgroundColor: Colors.blue,
       ),
     );
   }
@@ -74,6 +85,20 @@ class notas extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class Planificacion extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Página de Planificación'),
+      ),
+      body: Center(
+        child: Text('Contenido de la página de planificación'),
       ),
     );
   }
