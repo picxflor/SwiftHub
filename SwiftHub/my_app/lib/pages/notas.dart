@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:my_app/pages/contactos.dart';
+import 'package:my_app/pages/gps_ubi.dart';
 
 class notas extends StatelessWidget {
   final DateTime fecha;
@@ -36,7 +37,7 @@ class notas extends StatelessWidget {
         onPressed: () {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => Contactos()),
+            MaterialPageRoute(builder: (context) => UbiMap()),
           );
         },
         child: Icon(Icons.navigate_next),

@@ -4,6 +4,7 @@ import 'package:my_app/pages/estadisticas.dart';
 import 'package:my_app/pages/gps_ubi.dart';
 import 'package:my_app/pages/importantes.dart';
 import 'package:my_app/pages/logrados.dart';
+import 'package:my_app/pages/map.dart';
 import 'package:my_app/pages/mensajes.dart';
 import 'package:my_app/pages/noti.dart';
 import 'package:my_app/pages/pendientes.dart';
@@ -216,7 +217,7 @@ class ProfilePage extends StatelessWidget {
             case 3:
               // Navegar a la vista de "Ubicación"
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => UbiMap()));
+                  .push(MaterialPageRoute(builder: (context) => Mapdapi()));
               break;
             case 4:
               // Navegar a la vista de "Perfil"

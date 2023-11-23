@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/pages/contactos.dart';
 import 'package:my_app/pages/gps_ubi.dart';
+import 'package:my_app/pages/map.dart';
 import 'package:my_app/pages/noti.dart';
 import 'package:my_app/pages/planificacion.dart';
 import 'package:my_app/pages/profile_page.dart';
@@ -134,7 +135,7 @@ class MessagesScreen extends StatelessWidget {
             case 3:
               // Navegar a la vista de "Ubicación"
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => UbiMap()));
+                  .push(MaterialPageRoute(builder: (context) => Mapdapi()));
               break;
             case 4:
               // Navegar a la vista de "Perfil"
