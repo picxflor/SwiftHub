@@ -1,100 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:my_app/pages/login_page.dart';
-import 'package:my_app/pages/planificacion.dart';
-import 'package:flutter/services.dart';
+import 'package:my_app/pages/register_page.dart';
 
-void main() =>
-    runApp(const MaterialApp(home: MyApp()));
+void main(){
+  runApp(const MyApp());
+}
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  State<MyApp> createState() => _MyAppState();
+}
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'SwiftHub',
-      home: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'SwiftHub',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 254, 141, 2),
-                        fontFamily: 'Poppins',
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    'Planea tu mundo de eventos con nosotros',
-                    style:
-                        TextStyle(fontFamily: 'Poppins', color: Colors.black),
-                  )
-                ],
-              ),
-              Container(
-                alignment: Alignment
-                    .center, // Esto centra la imagen dentro del contenedor
-                child: Image.asset(
-                  'assets/images/logo.png',
-                  width: 150,
-                  height: 150,
-                ),
-              ),
-              Center(
-                child: Column(
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => planificacion()));
-                      },
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 245, 159, 46),
-                          side: const BorderSide(color: Colors.black),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 110, vertical: 20),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30))),
-                      child: const Text('Comenzar'),
-                    ),
-                    const SizedBox(height: 20),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const LoginPage()));
-                        },
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                const Color.fromARGB(198, 75, 200, 249),
-                            side: const BorderSide(color: Colors.black),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 100, vertical: 20),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30))),
-                        child: const Text('Iniciar sesión')),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
-    );
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState(){
+    super.initState();
   }
+
+   @override
+   Widget build(BuildContext context){
+    return GetMaterialApp(
+      title: "SwiftHub",
+      initialRoute: '/',
+      getPages: [
+        GetPage(name: '/', page: () => LoginPage()),
+        GetPage(name: '/register', page: () => RegisterPage())
+      ],
+      theme: ThemeData(
+          primaryColor: Colors.blueAccent,
+          colorScheme: const  ColorScheme(
+              brightness: Brightness.light,
+              primary: Colors.blueGrey,
+              onPrimary: Colors.amberAccent,
+              secondary: Colors.blueAccent,
+              onSecondary: Colors.blueAccent,
+              error: Colors.redAccent,
+              onError: Colors.red,
+              background: Colors.blueAccent,
+              onBackground: Colors.blueAccent,
+              surface: Colors.blueAccent,
+              onSurface: Colors.blueAccent)),
+    );
+    
+   }
 }

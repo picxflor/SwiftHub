@@ -1,217 +1,183 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/pages/initial_page.dart';
+import 'package:get/get.dart';
+import 'package:my_app/pages/register_controller.dart';
 
-class MyRegisterPage extends StatelessWidget {
-  const MyRegisterPage({super.key});
+// ignore: must_be_immutable
+class RegisterPage extends StatelessWidget {
+  RegisterController controller = Get.put(RegisterController());
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
-        body: SizedBox(
-      width: double.infinity,
-      height: double.infinity,
-      child: Stack(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(size.height * 0.10),
-              bottomRight: Radius.circular(size.height * 0.10),
-            ),
-            child: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.blueAccent, Colors.grey],
-                ),
-              ),
-              width: double.infinity,
-              height: size.height * 0.3,
-            ),
-          ),
-          // IconoPersona(),
-          loginForm(context),
-        ],
-      ),
-    ));
+      body: Stack(children: [
+        
+        _bgCover(context),
+        _buttomBack(),
+        _imageCover(),
+        _boxForm(context),
+      ]),
+    );
   }
 
-  SingleChildScrollView loginForm(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          const SizedBox(height: 130),
-          Container(
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.symmetric(horizontal: 25),
-            width: double.infinity,
-            decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 251, 243, 243),
-                borderRadius: BorderRadius.circular(25),
-                boxShadow: const [
-                  //corchete pq es una lista de boxshasow
-                  BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 15, //para que poarezca sombra
-                      offset: Offset(0, 5) //aumentar sombreado
-                      )
-                ]),
-            child: Column(
-              children: [
-                const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/images/logo.png',
-                      width: 100,
-                      height: 100,
-                    )
-                  ],
-                ),
-                const Text('Toma el control de tus eventos con SwiftHub!!',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    )),
-                const SizedBox(height: 20),
-                SizedBox(
-                  child: Form(
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    child: Column(
-                      children: [
-                        TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          autocorrect: false,
-                          validator: (value) {
-                            String pattern =
-                                r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$';
-                            RegExp regExp = RegExp(pattern);
-                            return regExp.hasMatch(value ?? '')
-                                ? null
-                                : 'El correo no es válido';
-                          },
-                          decoration: const InputDecoration(
-                              enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.grey)),
-                              hintText: 'email@hotmail.com',
-                              labelText: 'email'),
-                        ),
-                        const SizedBox(height: 20),
-                        TextFormField(
-                          autocorrect: false,
-                          obscureText: true,
-                          decoration: const InputDecoration(
-                              enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.grey)),
-                              hintText: '*********',
-                              labelText: 'password',
-                              suffixIcon: Icon(Icons.remove_red_eye_outlined)),
-                          validator: (value) {
-                            return (value != null && value.length >= 6)
-                                ? null
-                                : 'La contraseña no es válida';
-                          },
-                        ),
-                        const SizedBox(height: 20),
-                        MaterialButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const InitialPage()));
-                            }, // Define la acción al presionar el botón
-                            shape: const RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(14)),
-                            ),
-                            disabledColor: Colors.grey,
-                            color: Colors.black,
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 35, vertical: 10),
-                              child: const Text(
-                                'Registrarme',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12,
-                                    color: Colors.white),
-                              ),
-                            )),
-                            const SizedBox(height: 10),
-                        Container(
-                          alignment: Alignment.center,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center, 
-                            children: <Widget>[
-                              Container( height: 1,  width: 100, color: Colors.grey),
-                              const Padding(
-                                padding:
-                                    EdgeInsets.symmetric(horizontal: 10),
-                                child: Text( 'o',style: TextStyle( fontSize: 20,color: Colors.grey),
-                                ),
-                              ),
-                              Container(
-                                height: 1, // Alto de la segunda línea
-                                width: 100, // Ancho de la segunda línea
-                                color: Colors.grey,
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            MaterialButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const InitialPage(),
-                                  ),
-                                );
-                              },
-                              shape: const CircleBorder(),
-                              child:Image.asset(
-                                  'assets/images/google.png',
-                                  width: 40, // Ancho de la imagen
-                                  height: 40, // Alto de la imagen
-                                ),
-                              
-                            ),
-                            MaterialButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const InitialPage(),
-                                  ),
-                                );
-                              },
-                              shape:CircleBorder(), // Utiliza CircleBorder para hacerlo circular
-                              
-                              child: Image.asset(
-                                  'assets/images/fb.webp',
-                                  width: 40, // Ancho de la imagen
-                                  height: 40, // Alto de la imagen
-                                ),
-                              
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
+  Widget _buttomRegister() {
+    return Container(
+      width: double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 40, vertical: 30),
+      child: ElevatedButton(
+        onPressed: () => controller.register(),
+        child: Text('REGISTRARME'),
       ),
+    );
+  }
+
+  Widget _textFielPassForm() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 40, vertical: 2),
+      child: TextField(
+        controller: controller.passwordController,
+        keyboardType: TextInputType.text,
+        obscureText: true,
+        decoration:
+            InputDecoration(hintText: 'Password'),
+      ),
+    );
+  }
+
+  Widget _fieldLastNameForm() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 40, vertical: 2),
+      child: TextField(
+        controller: controller.lastNameController,
+        keyboardType: TextInputType.text,
+        decoration: InputDecoration(
+            hintText: 'LastName'),
+      ),
+    );
+  }
+
+  Widget _fieldNameForm() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 40, vertical: 2),
+      child: TextField(
+        controller: controller.firstNameController,
+        keyboardType: TextInputType.text,
+        
+        decoration: InputDecoration(
+            hintText: 'Firt Name'),
+      ),
+    );
+  }
+
+  Widget _fieldNumberForm() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 40, vertical: 2),
+      child: TextField(
+        controller: controller.phoneController,
+        keyboardType: TextInputType.phone,
+        decoration: InputDecoration(
+            hintText: 'CellPhone'),
+      ),
+    );
+  }
+
+  Widget _textFielConfirmPassForm() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 40, vertical: 2),
+      child: TextField(
+        controller: controller.confirmPassController,
+        keyboardType: TextInputType.text,
+        obscureText: true,
+        decoration: InputDecoration(
+            hintText: 'Confirm Password'),
+      ),
+    );
+  }
+
+  Widget _textFieldEmailForm() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 40),
+      child: TextField(
+        controller: controller.emailController,
+        keyboardType: TextInputType.emailAddress,
+        decoration:
+            InputDecoration(hintText: 'Email'),
+      ),
+    );
+  }
+
+  Widget _imageCover() {
+    return SafeArea(
+      child: Container(
+        margin: EdgeInsets.only(top: 20),
+        alignment: Alignment.topCenter,
+        child: GestureDetector(
+            onTap: () {},
+            child: Image.asset(
+              'assets/images/user.png',
+              width: 130,
+              height: 130,
+            )),
+      ),
+    );
+  }
+
+  Widget _buttomBack() {
+    return SafeArea(
+      child: Container(
+        child: IconButton(
+          onPressed: () => Get.back(),
+          icon: Icon(Icons.arrow_back),
+        ),
+      ),
+    );
+  }
+
+  Widget _textForm() {
+    return Container(
+      margin: EdgeInsets.only(top: 30, bottom: 25),
+      child: Text('INGRESA TU INFORMACIÓN - REGISTER',
+          style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+    );
+  }
+
+  Widget _boxForm(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.68,
+      margin: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height * 0.30, left: 30, right: 30),
+      decoration: BoxDecoration(color: Colors.white, boxShadow: <BoxShadow>[
+        BoxShadow(
+            color: Colors.black54, blurRadius: 15, offset: Offset(0, 0.75))
+      ]),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            _textForm(),
+            _textFieldEmailForm(),
+            _fieldNameForm(),
+            _fieldLastNameForm(),
+            _fieldNumberForm(),
+            _textFielPassForm(),
+            _textFielConfirmPassForm(),
+            _buttomRegister()
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _textAppName() {
+    return Text(
+      'Inicio de sesión',
+      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+    );
+  }
+
+  Widget _bgCover(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: MediaQuery.of(context).size.height * 0.35,
+      color: Colors.lightBlue,
     );
   }
 }

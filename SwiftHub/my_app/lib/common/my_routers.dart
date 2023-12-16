@@ -21,7 +21,7 @@ class MyRouters {
       case '/home':
         return MaterialPageRoute(builder: (_) => const MyHomePage());
       case '/login':
-        return MaterialPageRoute(builder: (_) => const LoginPage());
+        return MaterialPageRoute(builder: (_) => LoginPage());
       case '/playlist':
         return MaterialPageRoute(builder: (_) => const PlayingPage());
       case '/playing':
@@ -32,7 +32,7 @@ class MyRouters {
         return MaterialPageRoute(builder: (_) => const LogradosPage());
 
       default:
-        return MaterialPageRoute(builder: (_) => const LoginPage());
+        return MaterialPageRoute(builder: (_) =>LoginPage());
     }
   }
 }
