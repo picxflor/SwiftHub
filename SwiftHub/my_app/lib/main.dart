@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:my_app/pages/login_page.dart';
+import 'package:my_app/pages/pantalla_inicial.dart';
 import 'package:my_app/pages/register_page.dart';
 
 void main(){
@@ -26,7 +27,8 @@ class _MyAppState extends State<MyApp> {
       title: "SwiftHub",
       initialRoute: '/',
       getPages: [
-        GetPage(name: '/', page: () => LoginPage()),
+         GetPage(name: '/', page: () => PantallaInicial()),
+        GetPage(name: '/login', page: () => LoginPage()),
         GetPage(name: '/register', page: () => RegisterPage())
       ],
       theme: ThemeData(
